@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scrape Results</title>
+</head>
+<body style="font-family: Arial; padding: 2rem;">
+    <h2>Results:</h2>
+    <p>{{ message }}</p>
+
+    {% if headlines %}
+        <ul>
+        {% for article in headlines %}
+            <li>
+                <strong>{{ article.sentiment }}</strong> - 
+                <a href="{{ article.link }}" target="_blank">{{ article.headline }}</a>
+                <small>({{ article.date }})</small>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No articles found.</p>
+    {% endif %}
+
+    <br>
+    <a href="/">🔙 Back to Home</a>
+</body>
+</html>
